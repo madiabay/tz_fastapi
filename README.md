@@ -6,7 +6,7 @@
 1. venv activate:
 ```bash
 python3 -m venv venv
-source -m venv/bin/activate
+source venv/bin/activate
 ```
 2. Установите зависимости:
 ```bash
