@@ -6,7 +6,7 @@
 
 1. Установите зависимости:
 ```bash
-pip install -r requirements.txt
+pip install -r req.txt
 ```
 
 2. Применить миграции:
