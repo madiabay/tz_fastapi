@@ -2,6 +2,8 @@
 
 ## Запуск проекта
 
+0. GIT CLONE
+
 1. Установите зависимости:
 ```bash
 pip install -r requirements.txt
