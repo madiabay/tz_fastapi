@@ -3,8 +3,12 @@
 ## Запуск проекта
 
 0. GIT CLONE
-
-1. Установите зависимости:
+1. venv activate:
+```bash
+python3 -m venv venv
+source -m venv/bin/activate
+```
+2. Установите зависимости:
 ```bash
 pip install -r req.txt
 ```
