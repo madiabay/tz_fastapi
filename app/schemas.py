@@ -1,7 +1,6 @@
 import uuid
 from typing import List, Optional
-from pydantic import BaseModel, Field
-from . import constants
+from pydantic import BaseModel, Field, validator
 
 
 class ScoreBase(BaseModel):
@@ -24,25 +23,28 @@ class Score(ScoreBase):
     id: uuid.UUID
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class StudentBase(BaseModel):
     name: str
     age: int = Field(..., ge=0)
 
+    @validator('name')
+    def name_must_not_be_empty(cls, value):
+        if not value or value.strip() == '':
+            raise ValueError('Name must not be empty')
+        return value
+
+    class Config:
+        from_attributes = True
+
 
 class PartialUpdateStudent(StudentBase):
     name: Optional[str] = None
-    age: Optional[int] = Field(None, ge=0, le=10)
-
-    class Config:
-        orm_mode = True
+    age: Optional[int] = Field(None, ge=0)
 
 
 class Student(StudentBase):
     id: uuid.UUID
     scores: List[ScoreBase] = []
-
-    class Config:
-        orm_mode = True

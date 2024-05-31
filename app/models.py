@@ -13,7 +13,7 @@ class Student(Base):
     name = Column(String, index=True)
     age = Column(Integer)
 
-    scores = relationship("Score", back_populates="student")
+    scores = relationship("Score", back_populates="student", lazy="selectin")
 
 
 class Score(Base):
