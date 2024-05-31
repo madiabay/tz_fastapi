@@ -163,3 +163,4 @@ cython_debug/
 
 # Redis
 *.rdb
+*test.db
